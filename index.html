@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./imgs/logo.jpg" type="image/jpg" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>My Book Shop!</title>
+  </head>
+  <body>
+    <header class="header">
+      <a class="logo_link" href="/">
+        <img class="logo_image" src="./imgs/logo.jpg" alt="logo" />
+        <h1 class="logo_text">Kamoliddin Jamoliddinov</h1>
+      </a>
+    </header>
+    <main class="main">
+      <section class="section_top">
+        <form class="form form_created">
+          <h1 class="form_h1">Kitob qo'shish !</h1>
+          <input
+            class="input input_created-author"
+            type="text"
+            required
+            placeholder="Book author"
+          />
+          <input
+            class="input input_created-name"
+            type="text"
+            required
+            placeholder="Book name"
+          />
+          <input
+            class="input input_created-price"
+            type="number"
+            required
+            placeholder="Book price"
+          />
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </section>
+
+      <ul class="box">
+        <li class="box_list">
+          <img src="https://picsum.photos/100/100" alt="book" />
+          <h4>Book name</h4>
+          <h5>Book author</h5>
+          <div class="box_list-card">
+            <span>price</span>
+            <span>date</span>
+          </div>
+          <div class="btn-box">
+            <button class="btn btn-update">Update</button>
+            <button class="btn btn-delete">Delete</button>
+          </div>
+        </li>
+      </ul>
+    </main>
+    <footer class="footer">
+      <a href="/">@Kamoliddin_5917</a>
+    </footer>
+
+    <div class="modal">
+      <div class="modal_body">
+        <button class="modal_exit">X</button>
+        <form class="form form_update">
+          <h1 class="form_h1">Kitob O'zgartirish !</h1>
+          <input
+            class="input input-author"
+            type="text"
+            required
+            placeholder="Book author"
+          />
+          <input
+            class="input input-name"
+            type="text"
+            required
+            placeholder="Book name"
+          />
+          <input
+            class="input input-price"
+            type="number"
+            required
+            placeholder="Book price"
+          />
+          <button class="btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="list">
+      <li class="box_list">
+        <img src="https://picsum.photos/100/100" alt="book" />
+        <h4 class="box_list-name">Book name</h4>
+        <h5 class="box_list-author">Book author</h5>
+        <div class="box_list-card">
+          <span class="box_list-price">price</span>
+          <span class="box_list-date">date</span>
+        </div>
+        <div class="btn-box">
+          <button class="btn btn-update">Update</button>
+          <button class="btn btn-delete">Delete</button>
+        </div>
+      </li>
+    </template>
+
+    <script src="./javascript/script.js"></script>
+  </body>
+</html>
