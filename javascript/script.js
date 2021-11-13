@@ -48,7 +48,12 @@ const grphql = async () => {
 const grphqlPost = async (name, author, price) => {
   const query = `
   mutation($author: String!, $bookName: String!, $price: Int!){
-    createBook(author: $author, bookName: $bookName, price: $price)
+    createBook(author: $author, bookName: $bookName, price: $price) {
+      id
+      author
+      book_name
+      price
+    }
   }
     `;
   const variables = { bookName: name, author, price: +price };
@@ -66,7 +71,13 @@ const grphqlPost = async (name, author, price) => {
 const grphqlPut = async (id, name, author, price) => {
   const query = `
   mutation($updateBookId: Int!, $author: String!, $bookName: String!, $price: Int!){
-    updateBook(id: $updateBookId, author: $author, bookName: $bookName, price: $price)
+    updateBook(id: $updateBookId, author: $author, bookName: $bookName, price: $price){
+      id
+      author
+      book_name
+      price
+      created_at
+    }
   }
     `;
   const variables = {
@@ -83,12 +94,19 @@ const grphqlPut = async (id, name, author, price) => {
     body: JSON.stringify({ query, variables }),
   });
   const data = await json.json();
+  console.log(data.data);
 };
 
 const grphqlDelete = async (id) => {
   const query = `
   mutation($deleteBookId: Int!){
-    deleteBook(id: $deleteBookId)
+    deleteBook(id: $deleteBookId){
+      id
+      author
+      book_name
+      created_at
+      price
+    }
   }
     `;
   const variables = { deleteBookId: id };
