@@ -188,3 +188,15 @@ body {
   top: 0;
   right: 0;
 }
+
+@media only screen and (max-width: 543px) {
+  .box {
+    justify-content: center;
+  }
+  .modal_body {
+    width: 90%;
+  }
+  .section_top {
+    max-width: 99%;
+  }
+}
