@@ -3,6 +3,8 @@ const modalX = document.querySelector(".modal_exit");
 const myUlBook = document.querySelector(".box");
 const formUpdate = document.querySelector(".form_update");
 const formCreated = document.querySelector(".form_created");
+const formFile = document.querySelector(".form-file");
+const inputFile = document.querySelector("#input_file");
 const listTemplate = document.querySelector("#list").content;
 const newFragmentList = document.createDocumentFragment();
 
@@ -15,6 +17,30 @@ const inputAuthorCreated = document.querySelector(".input_created-author");
 const inputPriceCreated = document.querySelector(".input_created-price");
 
 let id = 0;
+/*
+formFile.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  console.log(inputFile.files[0]);
+  const file = inputFile.files[0];
+  const query = `
+  mutation($file: Upload!){
+    uploadFile(file: $file) {
+      url
+    }
+  }
+    `;
+  const variables = { file };
+  const json = await fetch("http://localhost:4000/graphql", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+  const data = await json.json();
+  console.log(data.data);
+});
+*/
 
 const grphql = async () => {
   const query = `
@@ -28,7 +54,7 @@ const grphql = async () => {
     }
   }
   `;
-  const json = await fetch("http://localhost:4000", {
+  const json = await fetch("http://localhost:4000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -57,7 +83,7 @@ const grphqlPost = async (name, author, price) => {
   }
     `;
   const variables = { bookName: name, author, price: +price };
-  const json = await fetch("http://localhost:4000", {
+  const json = await fetch("http://localhost:4000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -86,7 +112,7 @@ const grphqlPut = async (id, name, author, price) => {
     author,
     price: +price,
   };
-  const json = await fetch("http://localhost:4000", {
+  const json = await fetch("http://localhost:4000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -110,7 +136,7 @@ const grphqlDelete = async (id) => {
   }
     `;
   const variables = { deleteBookId: id };
-  const json = await fetch("http://localhost:4000", {
+  const json = await fetch("http://localhost:4000/graphql", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
